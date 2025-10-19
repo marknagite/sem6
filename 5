@@ -1,0 +1,39 @@
+#include <iostream>     
+#include <cctype>
+#include <cstring>
+    using namespace std;
+    int main()
+    {
+        setlocale(LC_ALL, "Rus");
+    char str[100];
+    cout << "Введите строку: ";
+    cin.getline(str, 100);
+
+    int glas = 0;
+    int sogl = 0;
+
+    const char glas_set[] = "AEIOUY";
+
+    for(int i = 0; i < strlen(str); i++) {
+        char c = toupper(str[i]); 
+        if(isalpha(c)) {
+            bool vglas = false;
+            for(int j = 0; j < strlen(glas_set); j++) {
+                if(c == glas_set[j]) {
+                    vglas = true;
+                    break;
+                }
+            }
+
+            if(vglas) {
+                glas++;
+            } else {
+                sogl++;
+            }
+        }
+    }
+
+    cout << "Гласных: " << glas << endl;
+    cout << "Согласных: " << sogl << endl;
+    return 0;
+    }
