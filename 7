@@ -1,0 +1,30 @@
+#include <iostream>   
+#include <cctype>
+#include <cstring>
+    using namespace std;
+    int main()
+    {
+        setlocale(LC_ALL, "Russ");
+
+
+     char str[100];
+     cout << "Введите строку: ";
+    cin.getline(str, 100);
+
+    int length = strlen(str);
+
+    for(int i = 0; i < length; i++) {
+        char c = str[i];
+        int csount = 1;
+
+        while(i + 1 < length && str[i + 1] == c) {
+            csount++;
+            i++;
+        }
+
+        cout << c<<"  " << csount << endl;
+    }
+
+    cout << endl;
+    return 0;
+    }
